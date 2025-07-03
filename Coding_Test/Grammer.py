@@ -84,6 +84,13 @@ a = [1, 2, 3, 4, 5, 5, 5]
 remove_set = {3, 5}
 result = [i for i in a if i not in remove_set] # [1, 2, 4]
 
+# 리스트를 문자열로 변환하기
+lst = ['a', 'b', 'c'] # 리스트가 문자열 요소일 경우
+result = ''.join(lst)
+
+lst = [1, 2, 3, 4] # 리스트가 숫자 요소일 경우
+result = ''.join(str(x) for x in lst)
+
 ###################### 문자열 자료형 ########################
 
 # 문자열은 특정 인덱스의 값을 변경할 수 없음 (Immutable)
@@ -132,7 +139,7 @@ key_list = data.keys() # dict_keys(['사과', '바나나'])
 # 값 데이터만 담은 리스트
 value_list = data.values() # dict_values(['Apple', 'Banana']) 
 
-###################### 사전 자료형 ########################
+###################### 집합 자료형 ########################
 
 # 중복을 허용하지 않고, 순서가 없음
 # 데이터의 조회 및 수정에 있어서 O(1)의 시간에 처리
@@ -367,6 +374,12 @@ reverse_result = sorted([9, 1, 8, 5, 4], reverse=True) # [9, 8, 5, 4, 1]
 # sorted() with key : 키 속성으로 정렬 기준 명시 가능
 array = [('홍길동', 50), ('이순신', 32), ('아무개', 74)]
 result = sorted(array, key=lambda x: x[1], reverse=True) # [('아무개', 74), ('홍길동', 50), ('이순신', 32)]
+
+# ord() : 아스키 코드
+ord('a')
+
+# 문자가 알파벳인지 확인
+'a'.isalpha() # True
 
 ##### itertools : 반복되는 형태의 데이터를 처리 기능 제공 (순열과 조합 라이브러리 중요) 
 
