@@ -381,6 +381,11 @@ ord('a')
 # 문자가 알파벳인지 확인
 'a'.isalpha() # True
 
+# enumerate() : 파이썬에서 반복문을 돌 때 "값"뿐만 아니라 "인덱스(위치)"도 함께 가져오고 싶을 때 사용
+fruits = ['apple', 'banana', 'cherry']
+for i, fruit in enumerate(fruits):
+    pass
+
 ##### itertools : 반복되는 형태의 데이터를 처리 기능 제공 (순열과 조합 라이브러리 중요) 
 
 # 순열 : {'A','B','C'}에서 3개를 선택하여 나열하는 경우
