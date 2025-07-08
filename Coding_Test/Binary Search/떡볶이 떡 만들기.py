@@ -16,26 +16,32 @@
 #            19 15 10 17
 #   출력 예시: 15
 
-n, req_sum = map(int, input().split())
-data = list(map(int, input().split()))
+##### 내 풀이
+n, req_sum = map(int, input().split()) # 떡의 개수, 요청한 떡의 길이
+data = list(map(int, input().split())) # 떡의 개별 높이
 
-data.sort()
+data.sort() # 떡의 높이를 오름차순으로 정렬
 
 def func():
-  start, end = 0, n - 1
-  prev_mid, prev_sum = 0, 0
+  start, end = 0, n - 1 # 이진 탐색 시작 인덱스와 끝 인덱스
+  prev_mid, prev_sum = 0, 0 # 이전 이진 탐색 데이터 (중간 인덱스, 떡 길이)
 
+  # 반복하여 이진 탐색 수행
   while True:
-    curr_mid = (start + end) // 2
+    curr_mid = (start + end) // 2 # 중간 인덱스
     curr_sum = 0
 
+    # 중간 인덱스의 떡 높이를 기준으로 자른 오른쪽 떡들의 길이 합 계산
     for val in data[curr_mid + 1:]: curr_sum += val - data[curr_mid]
 
+    # 오른쪽 떡들의 길이 합이 요청한 떡의 길이와 같다면 수행 종료
     if curr_sum == req_sum:
       return data[curr_mid]
     
+    # 요청한 떡의 길이가 이전 탐색의 합과 현재 탐색의 합의 사잇값인 경우
     if prev_sum < curr_sum and prev_sum < req_sum < curr_sum: 
       left, right = data[curr_mid] + 1, data[prev_mid]
+      # H 값을 보정하며 요청한 떡의 길이와 합이 같아질 때 수행 종료
       for h in range(left, right):
         curr_sum -= len(data[curr_mid + 1:])
         if curr_sum == req_sum:
@@ -48,12 +54,45 @@ def func():
         if curr_sum == req_sum:
           return h
 
+    # 위의 조건에 맞지 않고, 현재 길이가 요청 길이보다 크다면 오른쪽 떡 값들을 높이로 탐색
     if curr_sum > req_sum:
       prev_mid, prev_sum = curr_mid, curr_sum
       start = curr_mid + 1
+    # 현재 길이가 요청 길이보다 작고 더이상 왼쪽 떡값들이 없다면 가장 작은 떡의 길이보다 1 작은 값 반환
     elif curr_mid == 0: return data[0] - 1
+    # 현재 길이가 요청 길이보다 작다면 왼쪽 떡 값들을 높이로 탐색
     else:
       prev_mid, prev_sum = curr_mid, curr_sum
       end = curr_mid - 1
 
 print(func())
+
+##### 모범 답안
+# 떡의 개수(N)와 요청한 떡의 길이(M)을 입력
+n, m = list(map(int, input().split(' ')))
+# 각 떡의 개별 높이 정보를 입력
+array = list(map(int, input().split()))
+
+# 이진 탐색을 위한 시작점과 끝점 설정
+start = 0
+end = max(array)
+
+# 이진 탐색 수행 (반복적)
+result = 0
+while(start <= end):
+  total = 0
+  mid = (start + end) // 2
+  for x in array:
+    # 잘랐을 때 떡의 양 계산
+    if x > mid:
+      total += x - mid
+  # 떡의 양이 부족한 경우 더 많이 자르기 (왼쪽 부분 탐색)
+  if total < m:
+    end = mid - 1
+  # 떡의 양이 충분한 경우 덜 자르기 (오른쪽 부분 탐색)
+  else:
+    result = mid # 최대한 덜 잘랐을 때가 정답이므로, 여기에서 result에 기록
+    start = mid + 1
+
+# 정답 출력
+print(result)
