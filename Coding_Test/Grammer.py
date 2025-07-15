@@ -139,6 +139,10 @@ key_list = data.keys() # dict_keys(['사과', '바나나'])
 # 값 데이터만 담은 리스트
 value_list = data.values() # dict_values(['Apple', 'Banana']) 
 
+# 키와 값 데이터를 반복문에서 사용
+for key, value in data.items():
+  pass
+
 ###################### 집합 자료형 ########################
 
 # 중복을 허용하지 않고, 순서가 없음
