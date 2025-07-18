@@ -155,6 +155,12 @@ for key, value in data.items():
 if '사과' in data:
   pass
 
+# 키가 없을 때 자동으로 기본값을 설정
+from collections import defaultdict
+d = defaultdict(int) # 기본값을 0으로 설정
+d = defaultdict(list) # 기본값을 빈 리스트로 설정
+d = defaultdict(set) # 기본값을 빈 집합으로 설정
+
 ###################### 집합 자료형 ########################
 
 # 중복을 허용하지 않고, 순서가 없음
