@@ -279,6 +279,10 @@ for x in array:
 for i in range(1, 10):
   print(i)
 
+# 10부터 1까지 거꾸로 출력
+for i in range(10, 0, -1):
+  print(i)
+
 # continue : 남은 코드의 실행을 건너뛰고, 다음 반복을 진행
 for i in range(1, 10):
   if i % 2 == 0:
