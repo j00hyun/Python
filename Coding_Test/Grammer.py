@@ -289,6 +289,16 @@ for i in range(1, 10):
     continue
   result += 1 # 1부터 9까지의 홀수의 합
 
+# for - else: for 반복문이 break 없이 끝났을 때만 else가 실행
+numbers = [1, 3, 5, 7]
+
+for num in numbers:
+    if num == 4:
+        print("찾았다!")
+        break
+else:
+    print("4가 없음")
+
 # break : 반복문을 즉시 탈출
 while True:
   i += 1
