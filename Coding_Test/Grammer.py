@@ -461,6 +461,7 @@ counter = Counter(['red', 'blue', 'red', 'green', 'blue', 'blue'])
 
 counter['blue'] # 3
 counter['green'] # 1
+counter["black"] # 0 : 없는 키를 믈어볼 경우 에러가 나지 않고 0을 출력
 dict(counter) # {'red': 2, 'blue': 3, 'green': 1}
 
 ##### math: 필수적인 수학 기능 제공 (팩토리얼, 제곱근, 최대공약수, 삼각함수, 파이 상수)
