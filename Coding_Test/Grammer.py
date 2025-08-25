@@ -145,6 +145,12 @@ data['바나나'] = 'Banana'
 
 print(data) # {'사과': 'Apple', '바나나': 'Banana'}
 
+# 키 갯수 반환
+len(data) # 2
+
+# 해당 키-값 데이터 삭제
+del data['사과'] # {'바나나': 'Banana'}
+
 # 키 데이터만 담은 리스트
 key_list = data.keys() # dict_keys(['사과', '바나나'])
 
@@ -461,7 +467,7 @@ counter = Counter(['red', 'blue', 'red', 'green', 'blue', 'blue'])
 
 counter['blue'] # 3
 counter['green'] # 1
-counter["black"] # 0 : 없는 키를 믈어볼 경우 에러가 나지 않고 0을 출력
+counter["black"] # 0 : 없는 키를 믈어볼 경우 에러가 나지 않고 0을 출력 (dafaultdict랑 유사하게 동작)
 dict(counter) # {'red': 2, 'blue': 3, 'green': 1}
 
 ##### math: 필수적인 수학 기능 제공 (팩토리얼, 제곱근, 최대공약수, 삼각함수, 파이 상수)
