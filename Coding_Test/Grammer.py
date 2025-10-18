@@ -119,6 +119,10 @@ a[::-1] # FEDCBA
 a = "Hello World"
 a.replace(" ", "") # HelloWorld
 
+# 문자열 정렬
+a = "banana"
+''.join(sorted(a)) # aaabnn
+
 ###################### 튜플 자료형 ########################
 
 # 리스트와 차이점
