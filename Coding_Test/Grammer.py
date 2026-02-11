@@ -123,6 +123,10 @@ a.replace(" ", "") # HelloWorld
 a = "banana"
 ''.join(sorted(a)) # aaabnn
 
+# 문자열을 특정 구분자로 나누어 리스트로 만들어줌
+data = "apple,banana,grape"
+data.split(",") # ['apple', 'banana', 'grape']
+
 ###################### 튜플 자료형 ########################
 
 # 리스트와 차이점
